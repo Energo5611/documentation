@@ -1,0 +1,17 @@
+{
+  "version":"1.1",
+  "note":"Синтетические примеры только для парсера и sandbox. Структурная нормализация НЕ подтверждает выделение/существование номера. Реальные SMS на эти значения не отправлять.",
+  "cases":[
+    {"input":"0000000001","expectedCanonical":"+70000000001"},
+    {"input":"+7 (000) 000-00-01","expectedCanonical":"+70000000001"},
+    {"input":"8 (000) 000-00-01","expectedCanonical":"+70000000001","mustShowNormalizedNumber":true},
+    {"input":"70000000001","expectedCanonical":"+70000000001","mustShowNormalizedNumber":true},
+    {"input":"000000001","error":"INVALID_LENGTH"},
+    {"input":"000000000001","error":"INVALID_LENGTH"},
+    {"input":"+44 0000 000001","error":"UNSUPPORTED_PREFIX"},
+    {"input":"+7 abc 0000000","error":"INVALID_CHARACTERS"},
+    {"input":"+7","error":"INCOMPLETE_PHONE"},
+    {"input":"","error":"PHONE_REQUIRED"}
+  ],
+  "authCases":["phone_only_must_not_issue_session","expired_otp_rejected","consumed_otp_rejected","too_many_attempts_throttled","mock_provider_blocked_in_production","forwarded_invite_wrong_phone_rejected","pending_invite_does_not_grant_membership"]
+}

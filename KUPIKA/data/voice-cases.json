@@ -1,0 +1,15 @@
+{
+  "version":"1.1",
+  "status":"parser_test_spec_not_executed",
+  "cases":[
+    {"input":"Молоко два пакета, хлеб один, сыр двести граммов и яйца десять штук","expected":[{"name":"Молоко","quantity":"2","unit":"уп."},{"name":"Хлеб","quantity":"1","unit":"шт."},{"name":"Сыр","quantity":"200","unit":"г"},{"name":"Яйца","quantity":"10","unit":"шт."}]},
+    {"input":"Молоко 3,2%, два пакета","expected":[{"name":"Молоко","quantity":"2","unit":"уп.","note":"3,2%"}],"mustNot":"Разбивать десятичную жирность на отдельные товары"},
+    {"input":"Полкило яблок и полтора литра воды","expected":[{"name":"Яблоки","quantity":"0.5","unit":"кг"},{"name":"Вода","quantity":"1.5","unit":"л"}]},
+    {"input":"Обычное молоко и безлактозное молоко","expectedCount":2,"mustNot":"Объединять разные требования молча"},
+    {"input":"Сыр как в прошлый раз","expected":[{"name":"Сыр","quantity":null,"note":"как в прошлый раз","needsReview":true}],"mustNot":"Выдумывать бренд и количество"},
+    {"input":"Йогурт две","expectedCount":1,"needsReview":true,"mustNot":"Молчаливо назначать несовместимую единицу"},
+    {"input":"Хлеб\nЯйца 10 шт.\nСметана","expectedCount":3},
+    {"input":"","expectedCount":0,"mustNot":"Генерировать товары из тишины"},
+    {"input":"Купи вот этот необычный соус","needsReview":true,"mustNot":"Терять неизвестный товар либо придумывать точное наименование"}
+  ]
+}
