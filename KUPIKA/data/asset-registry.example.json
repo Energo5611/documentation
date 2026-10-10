@@ -1,0 +1,16 @@
+{
+  "version":"1.2",
+  "status":"planning_example_no_models_supplied",
+  "note":"Все позиции planned. null-пути не являются доступными моделями. В production resolver выбирает только approved с реально проверенными файлами и лицензией.",
+  "runtimeSelectionGate":{"requiredStatus":"approved","requirePosterFile":true,"requireVerifiedLicense":true,"requireModelForKindModel3d":true,"allowArbitraryExternalUrls":false},
+  "plannedAssets":[
+    {"id":"visual-milk-generic","semanticType":"milk","visualVariant":"neutral-package","status":"planned","targetKind":"model3d","explicitAttributes":{},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#E8DFD0"},
+    {"id":"visual-milk-bottle","semanticType":"milk","visualVariant":"bottle","status":"planned","targetKind":"model3d","explicitAttributes":{"packaging":"bottle"},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#E8DFD0"},
+    {"id":"visual-bread-baton","semanticType":"bread.baton","visualVariant":"plain","status":"planned","targetKind":"model3d","explicitAttributes":{"shape":"baton"},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#CDA56E"},
+    {"id":"visual-bread-baguette","semanticType":"bread.baguette","visualVariant":"plain","status":"planned","targetKind":"model3d","explicitAttributes":{"shape":"baguette"},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#C8A273"},
+    {"id":"visual-apple-green","semanticType":"fruit.apple","visualVariant":"green","status":"planned","targetKind":"model3d","explicitAttributes":{"color":"green"},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#A3B985"},
+    {"id":"visual-apple-red","semanticType":"fruit.apple","visualVariant":"red","status":"planned","targetKind":"model3d","explicitAttributes":{"color":"red"},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#C47E70"},
+    {"id":"visual-butter","semanticType":"butter","visualVariant":"block","status":"planned","targetKind":"model3d","explicitAttributes":{},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#E8DCA7"},
+    {"id":"visual-vegetable-oil","semanticType":"vegetable-oil","visualVariant":"neutral-bottle","status":"planned","targetKind":"model3d","explicitAttributes":{},"modelStorageKey":null,"posterStorageKey":null,"licenseId":null,"ambientColor":"#D6C081"}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "version": "1.2",
+  "status": "specification_not_executed",
+  "note": "Ожидаемые смысл и признаки изображения, не утверждение о наличии готовых файлов. В runtime выбираются только проверенные approved-ассеты.",
+  "cases": [
+    {"id":"AV01","input":"Добавь два пакета молока по литру, батон и килограмм зелёных яблок","expected":[{"semanticType":"milk","quantity":"2","unit":"уп.","packageSize":{"value":"1","unit":"л"},"visualMustBe":"milk_neutral_package"},{"semanticType":"bread.baton","quantity":null,"visualMustBe":"baton_not_baguette"},{"semanticType":"fruit.apple","quantity":"1","unit":"кг","attributes":{"color":"green"},"visualMustBe":"green_apple"}],"mustNot":["invent_bread_quantity","invent_milk_brand","use_red_apple","merge_two_packages_into_one"]},
+    {"id":"AV02","input":"Молоко 3,2%, две бутылки","expectedCount":1,"attributes":{"fatPercent":"3.2","packaging":"bottle"},"quantity":"2","visualMustBe":"milk_bottle","mustNot":["split_decimal","infer_bottle_volume"]},
+    {"id":"AV03","input":"Яблоки зелёные, не красные","expectedCount":1,"visualMustBe":"green_apple","mustNot":["red_apple","pear"]},
+    {"id":"AV04","input":"Возьми батон, а не багет","expectedCount":1,"semanticType":"bread.baton","mustNot":["baguette"]},
+    {"id":"AV05","input":"Добавь масло","clarificationRequired":true,"acceptableQuestion":"Сливочное или растительное?","followUp":"Сливочное, одну пачку","afterReply":{"semanticType":"butter","quantity":"1","unit":"уп."},"mustNot":["duplicate_draft_item"]},
+    {"id":"AV06","input":"Полкило сыра","quantity":"0.5","unit":"кг","visualMustBe":"generic_cheese","mustNot":["invent_brand","assume_prepacked_500g"]},
+    {"id":"AV07","input":"Паста","clarificationRequired":true,"mustNot":["assume_pasta_food_without_context"]},
+    {"id":"AV08","input":"Что-нибудь из молочки","needsReview":true,"mustNot":["assume_milk_only","invent_products"]},
+    {"id":"AV09","input":"Добавь молоко без лактозы","attributes":{"lactoseFreeRequired":true},"mustNot":["discard_requirement_for_picture","claim_picture_certifies_ingredients"]},
+    {"id":"AV10","input":"Наше обычное молоко","familyPreferenceExists":false,"clarificationRequired":true,"mustNot":["invent_history","read_other_family_preferences"]},
+    {"id":"AV11","input":"Сыр тот необычный, название не помню","needsReview":true,"matchLevel":"generic_product","mustNot":["invent_cheese_brand"]},
+    {"id":"AV12","input":"Купи тамаринд","exactAssetAvailable":false,"expectedBehavior":"preserve_name_and_use_honest_fallback","mustNot":["invent_glb_url","select_unrelated_exact_model","start_paid_generation"]},
+    {"id":"AV13","input":"Молока два, нет три пакета","expectedCount":1,"quantity":"3","unit":"уп."},
+    {"id":"AV14","input":"Хлеб не нужен","context":"current_draft","expectedBehavior":"exclude_candidate_from_draft_only","mustNot":["delete_published_list_item_without_confirmation"]},
+    {"id":"AV15","input":"","expectedCount":0,"mustNot":["invent_items_from_silence"]}
+  ],
+  "systemCases":["same_asset_variant_version_on_two_devices","asset_color_not_changed_by_theme","manual_visual_override_retains_quantity_and_notes","only_existing_approved_assets_selectable","late_job_does_not_publish_closed_draft","child_confirm_keeps_parent_approval","family_preferences_isolated","same_operation_id_does_not_duplicate_items","ambient_color_follows_selected_variant","voice_message_not_parsed_without_action","render_only_not_mislabeled_as_model3d"]
+}
